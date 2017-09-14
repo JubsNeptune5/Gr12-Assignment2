@@ -15,7 +15,9 @@ public class Assignment2 {
         if (n < 10) {
             return n;
         } else { //if(n >=10&& n<100){
-            
+           int  d = n%10;
+           
+           
         }
         // return 0; 
     }
