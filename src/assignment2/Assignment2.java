@@ -95,14 +95,21 @@ public class Assignment2 {
      * @return 
      */
     public int binaryConvert(int n){
-        
+        if(n == 0 ){
+            return 0;
+        } else if(n%2 != 0){
+            System.out.println(1);
+        }else{
+            System.out.println(0);
+        }
+        return binaryConvert(n/2);
     }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         Assignment2 test = new Assignment2();
-        int n = 5;
+        int n = 13;
         //Test A2Q1
         System.out.println("------A2Q1 TEST  Digit Sum-------");
         int A2Q1 = test.digitSum(n, 0);
@@ -119,6 +126,10 @@ public class Assignment2 {
         System.out.println("------A2Q4 TEST Hailstone Pattern-------");
         int A2Q4 = test.hailstone(n);
         System.out.println(A2Q4);
+        //Test A2Q5
+        System.out.println("------A2Q5 TEST Binary Convert-------");
+        int A2Q5 = test.binaryConvert(n);
+        System.out.println(A2Q5);
 
 
     }
