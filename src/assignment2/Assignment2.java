@@ -35,35 +35,90 @@ public class Assignment2 {
         // return 0; 
     }
 
+    /**
+     * Find the sum of the sum of digits
+     *
+     * @param n
+     * @return
+     */
     public int digitRoot(int n) {
         int x = digitSum(n, 0);
-        //x=x/10;
-        if (x < 10) {
-           // x=x*10;
-            System.out.println("x<10");
-            System.out.println(x);
+        //when the sum of the digits is less then 10, or the last digit of the sum is a zero(ten) 
+        if (x < 10 || x % 10 == 0) {
             return x;
         } else {
-            System.out.println("x");
-            System.out.println(x);
             return digitRoot(x);
         }
     }
 
     /**
+     * Find the number of blocks in a triangle
+     *
+     * @param n
+     * @return
+     */
+    public int triangle(int n) {
+        //Check if there is even a triangle
+        if (n <= 0) {
+            return 0;
+        }
+        //Add the current row plus the next row
+        return (n + triangle(n - 1));
+    }
+/**
+ * commence the hailstone pattern
+ * @param n
+ * @return 
+ */
+    public int hailstone(int n) {
+        //Print out list wwhen the numebr isnt 1;
+        if (n != 1) {
+            System.out.println(n);
+        }
+        //return 1 and end the method
+        if (n == 1) {
+            return 1;
+            //Check if the number is even
+        } else if (n % 2 == 0) {
+            //Divid the numebr by 2
+            return hailstone(n / 2);
+        } else {
+            //Multiply by 3 and add by 1 if the number is even
+            return hailstone(3 * n + 1);
+        }
+
+    }
+
+    /**
+     * Convert a number to binary
+     * @param n
+     * @return 
+     */
+    public int binaryConvert(int n){
+        
+    }
+    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         Assignment2 test = new Assignment2();
-        int n = 999999999;
+        int n = 5;
         //Test A2Q1
-        System.out.println("------A2Q1 TEST-------");
+        System.out.println("------A2Q1 TEST  Digit Sum-------");
         int A2Q1 = test.digitSum(n, 0);
         System.out.println(A2Q1);
         //Test A2Q2
-        System.out.println("------A2Q2 TEST-------");
+        System.out.println("------A2Q2 TEST  Digit Root-------");
         int A2Q2 = test.digitRoot(n);
         System.out.println(A2Q2);
+        //Test A2Q3
+        System.out.println("------A2Q3 TEST  Block Triangle-------");
+        int A2Q3 = test.triangle(n);
+        System.out.println(A2Q3);
+        //Test A2Q4
+        System.out.println("------A2Q4 TEST Hailstone Pattern-------");
+        int A2Q4 = test.hailstone(n);
+        System.out.println(A2Q4);
 
 
     }
