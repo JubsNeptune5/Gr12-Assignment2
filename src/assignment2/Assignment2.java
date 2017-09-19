@@ -94,17 +94,42 @@ public class Assignment2 {
      * @param n
      * @return 
      */
-    public int binaryConvert(int n){
+    public int binaryConvert(int n){ 
         if(n == 0 ){
             return 0;
         //When the number is oded return a 1 if even return 0
-        } else if(n%2 != 0){
-            System.out.println(1);
+        } else if(n%2 == 0){
+            System.out.print(0);
         }else{
-            System.out.println(0);
+            System.out.print(1);
         }
         //Return number divided by two
         return binaryConvert(n/2);
+    }
+    
+    public int convert(int n, int b){
+        if( n == 0){
+            return 0;
+        }else if(n%b<10){
+            System.out.print(n%b);
+            return convert(n/b,b);
+        }else if(n%b == 10){
+            System.out.print("A");
+        }else if(n%b == 11){
+            System.out.print("B");
+        }else if(n%b == 12){
+            System.out.print("C");
+        }else if(n%b == 13){
+            System.out.print("D");
+        }else if(n%b == 14){
+            System.out.print("E");
+        }else if(n%b == 15){
+            System.out.print("F");
+        }else if(n%b == 16){
+            System.out.print("G");
+        }
+        
+            return convert(n/b,b);
     }
     /**
      * @param args the command line arguments
@@ -112,6 +137,8 @@ public class Assignment2 {
     public static void main(String[] args) {
         Assignment2 test = new Assignment2();
         int n = 13;
+        int b = 2;
+        int[] binary = new int[n];
         //Test A2Q1
         System.out.println("------A2Q1 TEST  Digit Sum-------");
         int A2Q1 = test.digitSum(n, 0);
@@ -130,8 +157,14 @@ public class Assignment2 {
         System.out.println(A2Q4);
         //Test A2Q5
         System.out.println("------A2Q5 TEST Binary Convert-------");
-        int A2Q5 = test.binaryConvert(n);
+        for (int i = 13; i < 10; i++) {
+            
+        }
         System.out.println(A2Q5);
+        //Test A2Q6
+        System.out.println("------A2Q6 TEST Base Convert-------");
+        int A2Q6 = test.convert(n,b);
+        System.out.println(A2Q6);
 
 
     }
