@@ -97,11 +97,13 @@ public class Assignment2 {
     public int binaryConvert(int n){
         if(n == 0 ){
             return 0;
+        //When the number is oded return a 1 if even return 0
         } else if(n%2 != 0){
             System.out.println(1);
         }else{
             System.out.println(0);
         }
+        //Return number divided by two
         return binaryConvert(n/2);
     }
     /**
