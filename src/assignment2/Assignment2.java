@@ -149,10 +149,19 @@ public class Assignment2 {
      * @param length
      */
     public static boolean isPalindrome(String s, int length) {
+        System.out.println("Test length");
+        System.out.println(length);
         if (length == 1) {
             return true;
+        } else if (s.charAt(0) == s.charAt(length - 1)) {
+            s = s.substring(1, length - 1);
+            System.out.println("test substring");
+            System.out.println(s);
+            length = s.length();
+            isPalindrome(s, length);
+        } else {
+            return false;
         }
-        return false;
     }
 
     /**
@@ -162,7 +171,7 @@ public class Assignment2 {
         Assignment2 test = new Assignment2();
         int n = 1000;
         int b = 8;
-        String s = "a";
+        String s = "barrab";
         int length = s.length();
         //Test A2Q1
         System.out.println("------A2Q1 TEST  Digit Sum-------");
