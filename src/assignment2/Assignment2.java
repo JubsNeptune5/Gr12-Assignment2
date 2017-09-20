@@ -65,11 +65,13 @@ public class Assignment2 {
         //Add the current row plus the next row
         return (n + triangle(n - 1));
     }
-/**
- * commence the hailstone pattern
- * @param n
- * @return 
- */
+
+    /**
+     * commence the hailstone pattern
+     *
+     * @param n
+     * @return
+     */
     public int hailstone(int n) {
         //Print out list wwhen the numebr isnt 1;
         if (n != 1) {
@@ -90,55 +92,78 @@ public class Assignment2 {
     }
 
     /**
-     * Convert a number to binary
+     * Convert a decimal number to binary
+     *
      * @param n
-     * @return 
      */
-    public int binaryConvert(int n){ 
-        if(n == 0 ){
-            return 0;
-        //When the number is oded return a 1 if even return 0
-        } else if(n%2 == 0){
-            System.out.print(0);
-        }else{
-            System.out.print(1);
+    public static void binaryConvert(int n) {
+        //Exit method when the number is 0
+        if (n == 0) {
+            return;
         }
-        //Return number divided by two
-        return binaryConvert(n/2);
+        //When the number is greater than zero
+        if (n > 0) {
+            //go through the method with half of the number
+            binaryConvert(n / 2);
+            //Print out the remainder of the number
+            System.out.print(n % 2);
+        }
     }
-    
-    public int convert(int n, int b){
-        if( n == 0){
-            return 0;
-        }else if(n%b<10){
-            System.out.print(n%b);
-            return convert(n/b,b);
-        }else if(n%b == 10){
+
+    /**
+     * Method to convert a number with any base
+     *
+     * @param n
+     * @param b
+     */
+    public static void convert(int n, int b) {
+
+        if (n == 0) {
+            return;
+        }
+        convert(n / b, b);
+        if (n % b < 10) {
+            System.out.print(n % b);
+        } else if (n % b == 10) {
             System.out.print("A");
-        }else if(n%b == 11){
+        } else if (n % b == 11) {
             System.out.print("B");
-        }else if(n%b == 12){
+        } else if (n % b == 12) {
             System.out.print("C");
-        }else if(n%b == 13){
+        } else if (n % b == 13) {
             System.out.print("D");
-        }else if(n%b == 14){
+        } else if (n % b == 14) {
             System.out.print("E");
-        }else if(n%b == 15){
+        } else if (n % b == 15) {
             System.out.print("F");
-        }else if(n%b == 16){
+        } else if (n % b == 16) {
             System.out.print("G");
         }
-        
-            return convert(n/b,b);
+
     }
+
+    /**
+     * Method to find if a word is a palindrome
+     *
+     * @param s
+     * @param length
+     */
+    public static boolean isPalindrome(String s, int length) {
+        if (length == 1) {
+            return true;
+        }
+        return false;
+    }
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         Assignment2 test = new Assignment2();
-        int n = 13;
-        int b = 2;
-        int[] binary = new int[n];
+        int n = 1000;
+        int b = 8;
+        String s = "a";
+        int length = s.length();
         //Test A2Q1
         System.out.println("------A2Q1 TEST  Digit Sum-------");
         int A2Q1 = test.digitSum(n, 0);
@@ -157,15 +182,20 @@ public class Assignment2 {
         System.out.println(A2Q4);
         //Test A2Q5
         System.out.println("------A2Q5 TEST Binary Convert-------");
-        for (int i = 13; i < 10; i++) {
-            
-        }
-        System.out.println(A2Q5);
+        binaryConvert(n);
+        System.out.println();
         //Test A2Q6
         System.out.println("------A2Q6 TEST Base Convert-------");
-        int A2Q6 = test.convert(n,b);
-        System.out.println(A2Q6);
-
+        convert(n, b);
+        System.out.println();
+        //Test A2Q7
+        System.out.println("------A2Q7 TEST Palindrome Finder-------");
+        if (isPalindrome(s, length) == true) {
+            System.out.println(s + " --> TRUE");
+        } else {
+            System.out.println(s + " --> FALSE");
+        }
+        System.out.println();
 
     }
 }
