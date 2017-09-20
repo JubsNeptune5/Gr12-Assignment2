@@ -149,16 +149,24 @@ public class Assignment2 {
      * @param length
      */
     public static boolean isPalindrome(String s, int length) {
-        System.out.println("Test length");
-        System.out.println(length);
-        if (length == 1) {
+        //if theres one letter left its true
+        if (length <= 1) {
             return true;
+            //Check if the first and lastletter are the same
         } else if (s.charAt(0) == s.charAt(length - 1)) {
-            s = s.substring(1, length - 1);
-            System.out.println("test substring");
-            System.out.println(s);
+            //When its length is two, prevent the method from checking for the same number
+            if (length == 2) {
+                //print out the last letter
+                s = s.substring(1, 1);
+            } else {
+                //printout the last letter
+                s = s.substring(1, length - 1);
+            }
+            //Find length of new string
             length = s.length();
-            isPalindrome(s, length);
+            //return the new string and new length
+            return isPalindrome(s, length);
+            //Return false if the letters aren't the same
         } else {
             return false;
         }
